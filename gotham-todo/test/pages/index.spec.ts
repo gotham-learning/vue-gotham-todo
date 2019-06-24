@@ -41,7 +41,13 @@ describe('TodoApp', () => {
       expect(result.text()).toBe('test item')
     })
 
-    xit('should clear new todo input once todo is added', () => { })
+    it('should clear new todo input once todo is added', () => {
+      wrapper.setData({
+        newTodo: 'test item'
+      })
+      wrapper.find('[data-test="addButton"]').trigger('submit')
+      expect(wrapper.vm.$data.newTodo).toBe('')
+    })
   })
 
   describe('todo item', () => {

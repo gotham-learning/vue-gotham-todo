@@ -1,7 +1,7 @@
 <template>
   <div class="section is-vcentered is-hcentered">
     <div class="new-todo-container">
-      <form v-on:submit.prevent="addItem">
+      <form @submit.prevent="addItem">
         <input v-model="newTodo" type="text" class="input">
         <button type="submit" data-test="addButton" class="button is-primary">Add</button>
       </form>
@@ -37,6 +37,7 @@ export default Vue.extend({
   methods: {
     addItem() {
       this.todoList.push(this.newTodo)
+      this.newTodo = ''
     }
   }
 })
