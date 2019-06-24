@@ -1,9 +1,9 @@
 <template>
   <div class="section is-vcentered is-hcentered">
     <div class="new-todo-container">
-      <form @submit.prevent="addItemTodo">
+      <form @submit.prevent="addTodoItem">
         <input v-model="newTodo" type="text" class="input" />
-        <button type="submit" class="button is-primary">
+        <button type="submit" class="button is-primary" id="submit-button">
           Add
         </button>
       </form>
@@ -12,7 +12,7 @@
       <ul>
         <li v-for="(item, index) in todoList" :key="index">
           <input type="checkbox" />
-          <span class="item-text">{{ item }}</span>
+          <span class="item-text">{{ item.name }}</span>
           <button class="button">Delete</button>
         </li>
       </ul>
@@ -31,18 +31,24 @@
 
 <script lang="ts">
 import { Vue } from 'nuxt-property-decorator'
+import { ToDoItem } from '~/types'
 
 export default Vue.extend({
   data() {
     return {
-      todoList: ['item 1', 'item 2', 'item 3'],
+      todoList: [
+        new ToDoItem('item 1'),
+        new ToDoItem('item 2'),
+        new ToDoItem('item 3')
+      ],
       newTodo: ''
     }
   },
   computed: {},
   methods: {
-    addItemTodo() {
-      this.$data.todoList.push(this.$data.newTodo)
+    addTodoItem() {
+      const todoItem = new ToDoItem(this.$data.newTodo)
+      this.$data.todoList.push(todoItem)
       this.clearDataInput()
     },
     clearDataInput() {
