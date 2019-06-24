@@ -40,7 +40,9 @@ describe('TodoApp', () => {
         
     })
 
-    xit('should clear new todo input once todo is added', () => {})
+    it('should clear new todo input once todo is added', () => {
+        expect(wrapper.vm.$data.newTodo).toBe('')
+    })
   })
 
   describe('todo item', () => {

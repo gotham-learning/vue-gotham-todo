@@ -43,6 +43,7 @@ export default Vue.extend({
   methods: {
     addItemTodo() {
       this.$data.todoList.push(this.$data.newTodo)
+      this.$data.newTodo = ''
     }
   }
 })
