@@ -31,7 +31,15 @@ describe('TodoApp', () => {
       expect(wrappers).toBe('i1')
     })
 
-    xit('can add new todo to the todo todo list', () => { })
+    it('can add new todo to the todo todo list', () => {
+      wrapper.setData({
+        newTodo: 'test item'
+      })
+      wrapper.find('[data-test="addButton"]').trigger('submit')
+
+      const result = wrapper.findAll('.item-text').at(1)
+      expect(result.text()).toBe('test item')
+    })
 
     xit('should clear new todo input once todo is added', () => { })
   })

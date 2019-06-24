@@ -1,30 +1,24 @@
 <template>
   <div class="section is-vcentered is-hcentered">
     <div class="new-todo-container">
-      <form v-on:submit.prevent="doSomething">
-        <input v-model="newTodo" type="text" class="input" />
-        <button type="submit" class="button is-primary">
-          Add
-        </button>
+      <form v-on:submit.prevent="addItem">
+        <input v-model="newTodo" type="text" class="input">
+        <button type="submit" data-test="addButton" class="button is-primary">Add</button>
       </form>
     </div>
     <div class="todo-list-container">
       <ul>
         <li v-for="(item, index) in todoList" :key="index">
-          <input type="checkbox" />
+          <input type="checkbox">
           <span class="item-text">{{ item }}</span>
           <button class="button">Delete</button>
         </li>
       </ul>
     </div>
     <div class="filter-container">
-      <button type="button" class="button is-success is-rounded">
-        Show All
-      </button>
+      <button type="button" class="button is-success is-rounded">Show All</button>
       <button type="button" class="button is-info is-rounded">All Done</button>
-      <button type="button" class="button is-info is-rounded">
-        All Un-Done
-      </button>
+      <button type="button" class="button is-info is-rounded">All Un-Done</button>
     </div>
   </div>
 </template>
@@ -40,7 +34,11 @@ export default Vue.extend({
     }
   },
   computed: {},
-  methods: {}
+  methods: {
+    addItem() {
+      this.todoList.push(this.newTodo)
+    }
+  }
 })
 </script>
 
