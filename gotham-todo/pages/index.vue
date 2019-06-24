@@ -11,7 +11,7 @@
         <li v-for="(item, index) in todoList" :key="index">
           <input type="checkbox">
           <span class="item-text">{{ item }}</span>
-          <button class="button">Delete</button>
+          <button data-test="deleteButton" class="button" @click="deleteItem()">Delete</button>
         </li>
       </ul>
     </div>
@@ -38,6 +38,9 @@ export default Vue.extend({
     addItem() {
       this.todoList.push(this.newTodo)
       this.newTodo = ''
+    },
+    deleteItem(index: number) {
+      this.todoList.pop()
     }
   }
 })

@@ -53,7 +53,13 @@ describe('TodoApp', () => {
   describe('todo item', () => {
     xit('can be marked as done', () => { })
 
-    xit('can be deleted', () => { })
+    it('can be deleted', () => {
+      const itemsLength = wrapper.findAll('.item-text').length
+      wrapper.find('[data-test="deleteButton"]').trigger('click')
+      const resultLength = wrapper.findAll('.item-text').length
+
+      expect(resultLength < itemsLength).toBe(true)
+    })
   })
 
   describe('filters', () => {
