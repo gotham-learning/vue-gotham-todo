@@ -27,7 +27,18 @@ describe('TodoApp', () => {
 
     })
 
-    xit('can add new todo to the todo todo list', () => {})
+    it('can add new todo to the todo list', () => {
+        wrapper.vm.$data.newTodo  =  'item 4'
+        // @ts-ignore
+        wrapper.vm.addItemTodo()
+        expect(wrapper.vm.$data.todoList).toEqual([
+            'item 1',
+            'item 2',
+            'item 3',
+            'item 4'
+        ])
+        
+    })
 
     xit('should clear new todo input once todo is added', () => {})
   })

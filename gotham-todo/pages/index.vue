@@ -40,7 +40,11 @@ export default Vue.extend({
     }
   },
   computed: {},
-  methods: {}
+  methods: {
+    addItemTodo() {
+      this.$data.todoList.push(this.$data.newTodo)
+    }
+  }
 })
 </script>
 
