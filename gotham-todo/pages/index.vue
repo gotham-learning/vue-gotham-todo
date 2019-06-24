@@ -1,7 +1,7 @@
 <template>
   <div class="section is-vcentered is-hcentered">
     <div class="new-todo-container">
-      <form v-on:submit.prevent="doSomething">
+      <form @submit.prevent="addItemTodo">
         <input v-model="newTodo" type="text" class="input" />
         <button type="submit" class="button is-primary">
           Add
@@ -43,6 +43,9 @@ export default Vue.extend({
   methods: {
     addItemTodo() {
       this.$data.todoList.push(this.$data.newTodo)
+      this.clearDataInput()
+    },
+    clearDataInput() {
       this.$data.newTodo = ''
     }
   }
