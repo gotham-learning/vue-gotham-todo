@@ -54,11 +54,11 @@ describe('TodoApp', () => {
     xit('can be marked as done', () => { })
 
     it('can be deleted', () => {
-      const itemsLength = wrapper.findAll('.item-text').length
+      const targetTodoText = wrapper.findAll('.item-text').at(1).text()  //text = item2
       wrapper.find('[data-test="deleteButton"]').trigger('click')
-      const resultLength = wrapper.findAll('.item-text').length
+      const itemWithTargetText = wrapper.findAll('.item-text').filter(item => item.text() === targetTodoText)
 
-      expect(resultLength < itemsLength).toBe(true)
+      expect(wrapper.findAll(targetTodoText).exists()).toBe(false)
     })
   })
 
