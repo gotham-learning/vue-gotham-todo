@@ -6,6 +6,7 @@ resource "aws_s3_bucket" "app_hosting" {
   bucket = local.bucket_name
   acl    = "public-read"
   policy = data.aws_iam_policy_document.bucket_policy.json
+  force_destroy = true
 
   website {
     index_document = "index.html"

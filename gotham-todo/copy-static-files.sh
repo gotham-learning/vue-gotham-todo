@@ -26,4 +26,4 @@ aws s3 sync "${SCRIPT_DIR}/dist" "s3://${BUCKET_NAME}" --delete
 
 echo
 echo "-> Success!"
-echo "-> Access the webite at ${BUCKET_URL}"
+echo "-> Access the website at ${BUCKET_URL}"
