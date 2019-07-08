@@ -1,20 +1,20 @@
 export default {
   env: {},
   head: {
-    title: "gotham-todo",
+    title: 'gotham-todo',
     meta: [
-      { charset: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
-        hid: "description",
-        name: "description",
-        content: "Nuxt.js TypeScript project"
+        hid: 'description',
+        name: 'description',
+        content: 'Nuxt.js TypeScript project'
       }
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
-  loading: { color: "#3B8070" },
-  css: ["~/assets/css/main.css"],
+  loading: { color: '#3B8070' },
+  css: ['~/assets/css/main.css'],
   build: {
     postcss: {
       preset: {
@@ -38,8 +38,7 @@ export default {
         })
       }
     }
-
   },
-  modules: ["@nuxtjs/axios", "@nuxtjs/bulma"],
+  modules: ['@nuxtjs/axios', '@nuxtjs/bulma'],
   axios: {}
-};
+}
