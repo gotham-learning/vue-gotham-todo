@@ -6,5 +6,5 @@ set -e
 cd ${SCRIPT_DIR}/infrastructure
 
 terraform init
-terraform apply
+terraform apply -auto-approve
 
